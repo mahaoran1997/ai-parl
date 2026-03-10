@@ -62,6 +62,10 @@ MAIN_WS="$STATE_DIR/workspaces/main"
 $OC config set agents.defaults.workspace "$MAIN_WS"
 $OC config set agents.defaults.maxConcurrent 4 --strict-json
 $OC config set agents.defaults.subagents.maxConcurrent 4 --strict-json
+# Speaker needs enough time for the full propose+vote cycle (default 600s is fine)
+$OC config set agents.defaults.timeoutSeconds 600 --strict-json
+# Each member spawn gets 2 minutes before being considered failed
+$OC config set agents.defaults.subagents.runTimeoutSeconds 120 --strict-json
 $OC config set gateway.port 18800 --strict-json
 $OC config set gateway.mode local
 $OC config set gateway.bind loopback
