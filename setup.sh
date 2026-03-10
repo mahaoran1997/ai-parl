@@ -60,8 +60,8 @@ echo "Setting up OpenClaw profile: $PROFILE"
 # Default workspace points to main agent's copy (overridden per-agent below)
 MAIN_WS="$STATE_DIR/workspaces/main"
 $OC config set agents.defaults.workspace "$MAIN_WS"
-$OC config set agents.defaults.maxConcurrent 10 --strict-json
-$OC config set agents.defaults.subagents.maxConcurrent 10 --strict-json
+$OC config set agents.defaults.maxConcurrent 4 --strict-json
+$OC config set agents.defaults.subagents.maxConcurrent 4 --strict-json
 $OC config set gateway.port 18800 --strict-json
 $OC config set gateway.mode local
 $OC config set gateway.bind loopback
